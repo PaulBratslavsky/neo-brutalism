@@ -1,0 +1,226 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Neo-Brutalism Theme
+ * Bold borders, chunky shadows, flat colors, raw aesthetic
+ */
+
+:root {
+  --background: oklch(0.98 0.002 90);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+  --primary: oklch(0.63 0.25 25);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.93 0.04 95);
+  --secondary-foreground: oklch(0.15 0 0);
+  --muted: oklch(0.95 0.005 90);
+  --muted-foreground: oklch(0.4 0 0);
+  --accent: oklch(0.88 0.15 85);
+  --accent-foreground: oklch(0.15 0 0);
+  --destructive: oklch(0.577 0.245 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.15 0 0);
+  --input: oklch(0.15 0 0);
+  --ring: oklch(0.63 0.25 25);
+  --radius: 0px;
+  --chart-1: oklch(0.63 0.25 25);
+  --chart-2: oklch(0.75 0.15 140);
+  --chart-3: oklch(0.65 0.2 260);
+  --chart-4: oklch(0.85 0.18 85);
+  --chart-5: oklch(0.7 0.2 330);
+  --shadow-brutal: 5px 5px 0px oklch(0.15 0 0);
+  --shadow-brutal-sm: 3px 3px 0px oklch(0.15 0 0);
+  --shadow-brutal-lg: 8px 8px 0px oklch(0.15 0 0);
+  --shadow-brutal-red: 5px 5px 0px oklch(0.63 0.25 25);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==============================
+   NEO-BRUTALISM UTILITIES
+   ============================== */
+
+/* Brutal card - thick border + offset shadow */
+.brutal-card {
+  border: 3px solid oklch(0.15 0 0);
+  box-shadow: var(--shadow-brutal);
+  background: white;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.brutal-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px oklch(0.15 0 0);
+}
+
+/* Brutal button */
+.brutal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid oklch(0.15 0 0);
+  box-shadow: var(--shadow-brutal);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  cursor: pointer;
+}
+
+.brutal-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px oklch(0.15 0 0);
+}
+
+.brutal-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px oklch(0.15 0 0);
+}
+
+/* Brutal input */
+.brutal-input {
+  border: 3px solid oklch(0.15 0 0);
+  box-shadow: var(--shadow-brutal-sm);
+  background: white;
+  outline: none;
+  transition: box-shadow 0.15s ease;
+}
+
+.brutal-input:focus {
+  box-shadow: var(--shadow-brutal-red);
+  border-color: oklch(0.63 0.25 25);
+}
+
+/* Brutal divider */
+.brutal-divider {
+  border-top: 3px solid oklch(0.15 0 0);
+}
+
+/* Color accent blocks */
+.accent-yellow {
+  background: #FFE156;
+}
+
+.accent-blue {
+  background: #7EB4FF;
+}
+
+.accent-pink {
+  background: #FF8FAB;
+}
+
+.accent-green {
+  background: #8FE388;
+}
+
+.accent-red {
+  background: #FF4D4D;
+}
+
+/* Marquee / ticker effect for brutalism */
+@keyframes brutal-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.brutal-marquee {
+  animation: brutal-marquee 20s linear infinite;
+}
+
+/* Sticker effect - rotated labels */
+.brutal-sticker {
+  display: inline-block;
+  border: 3px solid oklch(0.15 0 0);
+  box-shadow: var(--shadow-brutal-sm);
+  padding: 4px 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  transform: rotate(-2deg);
+}
+
+/* Zigzag border decoration */
+.brutal-zigzag {
+  position: relative;
+}
+
+.brutal-zigzag::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(135deg, oklch(0.15 0 0) 25%, transparent 25%) -8px 0,
+    linear-gradient(225deg, oklch(0.15 0 0) 25%, transparent 25%) -8px 0,
+    linear-gradient(315deg, oklch(0.15 0 0) 25%, transparent 25%),
+    linear-gradient(45deg, oklch(0.15 0 0) 25%, transparent 25%);
+  background-size: 16px 8px;
+}
